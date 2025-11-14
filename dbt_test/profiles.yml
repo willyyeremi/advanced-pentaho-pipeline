@@ -1,0 +1,13 @@
+company_pipeline:
+  target: dev
+  outputs:
+    dev:
+      dbname: example_datalake
+      host: localhost
+      pass: admin
+      port: 5432
+      schema: rnacen
+      threads: 1
+      type: postgres
+      user: admin
+

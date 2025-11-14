@@ -1,0 +1,204 @@
+version: 2
+
+sources:
+  - name: rnacen_staging
+    schema: rnacen_staging
+    tables:
+      - name: rfam_clans_stg_final
+        columns:
+          - name: rfam_clan_id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: name
+            data_tests:
+              - not_null
+          - name: description
+            data_tests:
+              - not_null
+          - name: family_count
+            data_tests:
+              - not_null
+              - greater_or_equal_zero
+      - name: ontology_terms_stg_final
+        columns:
+          - name: ontology_term_id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: ontology
+          - name: name
+          - name: definition
+      - name: rnc_release_stg_final
+        columns:
+          - name: id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: dbid
+            data_tests:
+              - not_null
+          - name: release_date
+            data_tests:
+              - not_null
+          - name: release_type
+            data_tests:
+              - not_null
+          - name: status
+            data_tests:
+              - not_null
+          - name: timestamp
+            data_tests:
+              - not_null
+          - name: userstamp
+            data_tests:
+              - not_null
+          - name: descr
+          - name: force_load
+      - name: ensembl_assembly_stg_final
+        columns:
+          - name: assembly_id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: assembly_full_name
+            data_tests:
+              - not_null
+          - name: gca_accession
+          - name: assembly_ucsc
+          - name: common_name
+          - name: taxid
+            data_tests:
+              - not_null
+          - name: ensembl_url
+          - name: division
+          - name: blat_mapping
+          - name: example_chromosome
+          - name: example_end
+          - name: example_start
+          - name: subdomain
+            data_tests:
+              - not_null
+          - name: selected_genome
+            data_tests:
+              - not_null
+      - name: rfam_models_stg_final
+        columns:
+          - name: rfam_model_id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: short_name
+            data_tests:
+              - not_null
+          - name: long_name
+            data_tests:
+              - not_null
+          - name: description
+          - name: seed_count
+            data_tests:
+              - not_null
+              - greater_or_equal_zero
+          - name: full_count
+            data_tests:
+              - not_null
+              - greater_or_equal_zero
+          - name: length
+            data_tests:
+              - not_null
+              - greater_or_equal_zero
+          - name: is_suppressed
+            data_tests:
+              - not_null
+          - name: domain
+          - name: rna_type
+            data_tests:
+              - not_null
+          - name: rfam_clan_id
+          - name: rfam_rna_type
+            data_tests:
+              - not_null
+          - name: so_rna_type
+      - name: rnc_rna_precomputed_stg_final
+        columns:
+          - name: id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: taxid
+          - name: description
+          - name: upi
+            data_tests:
+              - not_null
+          - name: rna_type
+          - name: update_date
+          - name: has_coordinates
+          - name: databases
+          - name: is_active
+          - name: last_release
+            data_tests:
+              - not_null
+          - name: short_description
+          - name: so_rna_type
+          - name: is_locus_representative
+          - name: assigned_so_rna_type
+      - name: rnc_sequence_regions_stg_final
+        columns:
+          - name: id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: urs_taxid
+            data_tests:
+              - not_null
+          - name: region_name
+            data_tests:
+              - not_null
+          - name: chromosome
+            data_tests:
+              - not_null
+          - name: strand
+            data_tests:
+              - not_null
+          - name: region_start
+            data_tests:
+              - not_null
+          - name: region_stop
+            data_tests:
+              - not_null
+          - name: assembly_id
+          - name: was_mapped
+            data_tests:
+              - not_null
+          - name: identity
+          - name: providing_databases
+          - name: exon_count
+            data_tests:
+              - not_null
+              - greater_than_zero
+      - name: rnc_gene_status_stg_final
+        columns:
+          - name: id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
+          - name: assembly_id
+            data_tests:
+              - not_null
+          - name: urs_taxid
+            data_tests:
+              - not_null
+          - name: region_id
+            data_tests:
+              - not_null
+          - name: status
+            data_tests:
+              - not_null
