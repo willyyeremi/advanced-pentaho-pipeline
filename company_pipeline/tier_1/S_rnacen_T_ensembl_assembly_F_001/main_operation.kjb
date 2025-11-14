@@ -11,12 +11,7 @@
   <modified_user>-</modified_user>
   <modified_date>2025/11/09 10:10:20.814</modified_date>
   <parameters>
-    <parameter>
-      <name>root_directory</name>
-      <default_value>D:\Pentaho Repo\test_pipeline</default_value>
-      <description/>
-    </parameter>
-  </parameters>
+    </parameters>
   <connection>
     <name>localhost logging_pentaho</name>
     <server>localhost</server>

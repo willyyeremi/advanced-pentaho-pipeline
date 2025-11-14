@@ -10,7 +10,4 @@ set "TARGET_SOURCE=%~2"
 cd /d "%REPO_PATH%\dbt_test"
 
 @REM Aktifkan virtual environment
-call "venv\Scripts\activate.bat"
-
-@REM Jalankan DBT Test
-dbt test --select "source:%TARGET_SOURCE%"
+call dbt test --select "source:%TARGET_SOURCE%"
